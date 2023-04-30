@@ -1,0 +1,29 @@
+<h2>Revenues</h2>
+
+<ul>
+  <li *ngFor="let revenue of listRevenue">
+    {{ revenue?.idRevenue }} - {{ revenue.amount }} - {{ revenue.source }} - {{ revenue.total }} - {{ revenue.date }}
+    <button (click)="deleteRevenue(revenue)">Delete</button>
+    <button (click)="updateRevenue(revenue)">Update</button>
+  </li>
+</ul>
+<h2>Add Revenue</h2>
+<form (submit)="addRevenue()">
+  <div>
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" [(ngModel)]="revenue.amount">
+  </div>
+  <div>
+    <label for="source">Source:</label>
+    <input type="text" id="source" name="source" [(ngModel)]="revenue.source">
+  </div>
+  <div>
+    <label for="total">Total:</label>
+    <input type="number" id="total" name="total" [(ngModel)]="revenue.total">
+  </div>
+  <div>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" [(ngModel)]="revenue.date">
+  </div>
+  <button type="submit">Add</button>
+</form>  
